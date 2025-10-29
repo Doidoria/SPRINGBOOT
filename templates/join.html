@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" th:href="@{/css/common.css}">
+    <link rel="stylesheet" th:href="@{/css/header.css}">
+    <link rel="stylesheet" th:href="@{/css/login.css}">
+    <link rel="stylesheet" th:href="@{/css/join.css}">
+
+    <script th:src="@{/js/main.js}" defer></script>
+    <title>로그인 페이지</title>
+</head>
+<body>
+    <div class="layout">
+        <main>
+            <div class="login-container">
+                <div class="logo" aria-label="로고">
+                    <a href="#"><span class="name">Hangle</span></a>
+                </div>
+                <form method="post" action="/join" th:object="${joinDto}">
+                    <div class="input-group">
+                        <label for="username">이름</label>
+                        <input type="text" th:field="*{username}" id="username" name="username" placeholder="닉네임(별명)" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="userid">아이디 (이메일)</label>
+                        <input type="email" th:field="*{userid}" id="userid" name="userid" placeholder="ID(E-mail)" autofocus="" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="password">비밀번호</label>
+                        <input type="password" id="password" name="password" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="repassword">비밀번호 확인</label>
+                        <span th:if="${#fields.hasErrors('repassword')}" th:errors="*{repassword}" class="error-message" style="color:red;">패스워드가 일치하지 않습니다.</span>
+                        <input type="password" id="repassword" name="repassword" required>
+                    </div>
+
+                    <button type="submit" class="primary" id="submitBtn">회원가입</button>
+                </form>
+
+                <div class="register-links">이미 계정이 있으신가요?
+                    <a href="/login">로그인</a>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

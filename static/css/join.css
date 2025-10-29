@@ -1,0 +1,27 @@
+.input-group input[type="email"]{
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid #dadce0;
+    border-radius: 4px;
+}
+.register-links {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 14px;
+    color: #5f6368;
+}
+.register-links a {
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: bold;
+}
+.register-links a:hover {text-decoration: underline;}
+
+/* 에러메세지 */
+.error-message {
+    color: red; /* 글자색을 빨간색으로 */
+    font-size: 0.9em; /* 글자 크기를 조금 작게 */
+    margin-top: 5px; /* 위쪽에 약간의 간격 */
+    display: block; /* 줄 바꿈을 위해 블록 요소로 설정 */
+}

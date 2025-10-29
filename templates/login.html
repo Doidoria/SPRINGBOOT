@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" th:href="@{/css/common.css}">
+    <link rel="stylesheet" th:href="@{/css/header.css}">
+    <link rel="stylesheet" th:href="@{/css/login.css}">
+
+    <script th:src="@{/js/main.js}" defer></script>
+    <title>로그인 페이지</title>
+</head>
+<body>
+    <div class="layout">
+        <main>
+            <div class="login-container">
+                <div class="logo" aria-label="로고">
+                    <a href="/"><span class="name">Hangle</span></a>
+                </div>
+                <form method="post" class="login-wrap login-form" action="/login">
+                    <div class="input-group">
+                        <label for="username" class="screenreader">아이디 (E-mail)</label>
+                        <input type="text" id="username" name="username" autofocus="" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="password" class="screenreader">비밀번호</label>
+                        <input type="password" id="password" name="password" required>
+                    </div>
+                    <button type="submit" class="primary">로그인</button>
+                </form>
+                <div class="divider">OR</div>
+                <a th:href="@{/oauth2/authorization/kakao}" class="social-login-button kakao-login">
+                    <img th:src="@{/image/icon_Kakao.png}" alt="카카오 로그인"> 카카오 로그인
+                </a>
+                <a th:href="@{/oauth2/authorization/naver}" class="social-login-button naver-login">
+                    <img th:src="@{/image/icon_Naver.png}" alt="네이버 로그인"> 네이버 로그인
+                </a>
+                <a th:href="@{/oauth2/authorization/google}" class="social-login-button google-login">
+                    <img th:src="@{/image/icon_Google.png}" alt="구글 로그인"> 구글 로그인
+                </a>
+                <span th:text="${param.error}"></span>
+            </div>
+        </main>
+    </div>
+</body>
+</html>
